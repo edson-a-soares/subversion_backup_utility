@@ -86,3 +86,37 @@ get_repository_revision () {
     echo $revision
 
 }
+
+#===  FUNCTION  ================================================================
+#          NAME: count_subdirectories
+#   DESCRIPTION: Count the amount of directories inside some common root directory.
+#    PARAMETERS: The common root directory path.
+#       RETURNS: The amount of subdirectories.
+#===============================================================================
+count_subdirectories () {
+
+    local source_directory=$1
+    local counter=$(find ${source_directory} -type d ! -path ${source_directory} | wc -l)
+    echo "$counter"
+
+}
+
+#===  FUNCTION  ================================================================
+#          NAME: is_package_installed
+#   DESCRIPTION: It checks if a package is installed.
+#    PARAMETERS: The package name.
+#       RETURNS: It returns true if the package is installed and false otherwise.
+#===============================================================================
+is_package_installed () {
+
+    local name=$1
+    local result=false
+
+    which ${name} > /dev/null
+    if test $? -eq 0; then
+        result=true
+    fi
+
+    echo "$result"
+
+}

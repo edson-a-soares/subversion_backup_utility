@@ -1,0 +1,7 @@
+# Add any directories, files, or patterns you don't want to be tracked by version control
+/samples/howto/sample.backup/*
+/samples/howto/.vagrant/
+/samples/howto/puppet/librarian/.tmp/
+/samples/howto/puppet/librarian/.librarian/
+/samples/howto/puppet/librarian/Puppetfile.lock
+/samples/howto/puppet/librarian/modules/
