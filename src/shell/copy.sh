@@ -1,5 +1,12 @@
 #!/bin/bash
 
+import () {
+
+    local file_path=$1
+    . $(dirname "$0")/$file_path
+
+}
+
 #===============================================================================
 #
 #          FILE:  copy.sh
@@ -16,11 +23,11 @@
 #       CREATED:  08/03/2017
 #===============================================================================
 
-source util.sh
+import util.sh
 
 readonly SCRIPT_VERSION=2017/01/14;
 readonly DEFAULT_CONCURRENT_BACKUP_ALLOWED=2
-readonly DEFAULT_TARGET_ROOT_DIRECTORY_NAME=subversion_backup_utility
+readonly DEFAULT_TARGET_ROOT_DIRECTORY_NAME=subversion_backup
 
 target_root_directory=
 source_root_directory=
